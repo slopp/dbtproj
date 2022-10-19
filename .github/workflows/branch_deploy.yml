@@ -1,8 +1,6 @@
-on: 
-  push:
-    branches:
-      - "main"
-      - "master"
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
 jobs:
   dispatch:
     runs-on: ubuntu-latest
@@ -14,6 +12,9 @@ jobs:
           await github.rest.actions.createWorkflowDispatch({
             owner: 'slopp',
             repo: 'dagsterproj',
-            workflow_id: 'deploy.yml',
-            ref: 'main'
+            ref: 'main',
+            workflow_id: 'branch_deployments.yml',
+            inputs: {
+              dbtref: "${{ github.ref }}"
+            }
           })

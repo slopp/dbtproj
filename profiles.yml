@@ -1,0 +1,6 @@
+dbtproj:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: example.duckdb

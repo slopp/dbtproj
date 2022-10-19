@@ -14,6 +14,6 @@ jobs:
             repo: 'dagsterproj',
             workflow_id: 'branch_deployments.yml'
             inputs: {
-              ref: ${{ github.ref }}
+              ref: "${{ github.ref }}"
             }
           })

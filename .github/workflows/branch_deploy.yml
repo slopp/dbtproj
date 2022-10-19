@@ -12,6 +12,7 @@ jobs:
           await github.rest.actions.createWorkflowDispatch({
             owner: 'slopp',
             repo: 'dagsterproj',
+            ref: 'main',
             workflow_id: 'branch_deployments.yml',
             inputs: {
               dbtref: "${{ github.ref }}"
